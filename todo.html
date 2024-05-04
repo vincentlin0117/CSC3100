@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+</head>
+<body data-bs-theme="dark">
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="">Todos</a>
+                <div class="d-flex justify-content-end">
+                    
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarItemList" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarItemList">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#divColNotStarted">Not Started</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#divColInProgress">In Progress</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#divColOnHold">On Hold</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#divColCompleted">Completed</a>
+                        </li>
+                    </ul>
+                <button id="btnAddTask" class="btn btn-outline-success" type="button" data-bs-toggle="collapse" data-bs-target="#divAddTask">Add Task</button>
+                </div>
+                
+            </div>
+        </nav>
+    </header>
+    <div id="divAddTask" class="col-12 col-md-8 offset-md-2 justify-content-center align-content-center mt-3 collapse card card-body p-1">
+        <form>
+            <label class="form-label" for="txtTaskName">Task Name:</label>
+            <input class="form-control" id="txtTaskName" type="text">
+            <label class="form-label" for="dtDueDate">Due Date:</label>
+            <input class="form-control" id="dtDueDate" type="Date">
+            <label class="form-label" for="txtLocation">Location:</label>
+            <input class="form-control" id="txtLocation">
+            <label class="form-label" for="txtInstructions">Instruction:</label>
+            <textarea class="form-control" id="txtInstructions"></textarea>
+            <label class="form-label" for="selStatus">Status:</label>
+            <select class="form-control" id="selStatus">
+                <option value=""></option>
+                <option value="Not Started">Not Started</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Completed">Completed</option>
+                <option value="On Hold">On Hold</option>
+            </select>
+            <div class="col-12 d-flex justify-content-around mt-4">
+                <button id="btnAdd" class="btn btn-primary col-5" type="button">Add</button>
+                <button id="btnCancel" class="btn btn-danger col-5" type="button">Cancel</button>
+            </div>
+        </form>
+    </div>
+    <div id="divEditTask" class="col-12 col-md-8 offset-md-2 justify-content-center align-content-center mt-3 collapse card card-body p-1">
+        <form>
+            <label class="form-label" for="txtEditTaskID">TaskID:</label>
+            <input class="form-control" id="txtEditTaskID" disabled>
+            <label class="form-label" for="txtEditTaskName">Task Name:</label>
+            <input class="form-control" id="txtEditTaskName" type="text">
+            <label class="form-label" for="dtEditDueDate">Due Date:</label>
+            <input class="form-control" id="dtEditDueDate" type="Date">
+            <label class="form-label" for="txtEditLocation">Location:</label>
+            <input class="form-control" id="txtEditLocation">
+            <label class="form-label" for="txtEditInstructions">Instruction:</label>
+            <textarea class="form-control" id="txtEditInstructions"></textarea>
+            <label class="form-label" for="selEditStatus">Status:</label>
+            <select class="form-control" id="selEditStatus">
+                <option value=""></option>
+                <option value="Not Started">Not Started</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Completed">Completed</option>
+                <option value="On Hold">On Hold</option>
+            </select>
+            <div class="col-12 d-flex justify-content-around mt-4">
+                <button id="btnUpdate" class="btn btn-primary col-5" type="button">Edit</button>
+                <button id="btnEditCancel" class="btn btn-danger col-5" type="button">Cancel</button>
+            </div>
+        </form>
+    </div>
+    <div id="divTable" class="card card-body container mt-2">
+        <div class="row">
+            <div id="divColNotStarted" class="col-lg-3">
+                <div class="d-flex flex-row mb-3 justify-content-center">
+                    <img class="icon me-2" src="Assets/Circles/HollowCircle.svg" alt="black circle">
+                    <h2 class="">Not Started</h2>
+                </div>
+            </div>
+            <div id="divColInProgress" class="col-lg-3">
+                <div class="d-flex flex-row justify-content-center">
+                    <img class="icon me-2" src="Assets/Circles/YellowCircle copy.svg" alt="yellow circle">
+                    <h2>In Progress</h2>
+                </div>
+            </div>
+            <div id="divColOnHold" class="col-lg-3">
+                <div class="d-flex flex-row justify-content-center">
+                    <img class="icon me-2" src="Assets/Circles/OrangeCircle copy.svg" alt="orange circle">
+                    <h2>On Hold</h2>
+                </div>
+            </div>
+            <div id="divColCompleted" class="col-lg-3">
+                <div class="d-flex flex-row justify-content-center">
+                    <img class="icon me-2" src="Assets/Circles/GreenCircle copy.svg" alt="green circle">
+                    <h2>Completed</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        $.getJSON('http://localhost:8000/todo',function(result){
+            result.task.forEach(tsk => {
+                let statusImg = '<img class="icon me-2" src="Assets/Circles/HollowCircle.svg" alt="black circle">'
+                let div = '#divColNotStarted'
+                if(tsk.Status == "In Progress"){
+                    statusImg = '<img class="icon me-2" src="Assets/Circles/YellowCircle copy.svg" alt="yellow circle">'
+                    div = '#divColInProgress'
+                }else if(tsk.Status == "On Hold"){
+                    statusImg = '<img class="icon me-2" src="Assets/Circles/OrangeCircle copy.svg" alt="orange circle">'
+                    div = '#divColOnHold'
+                }else if(tsk.Status == "Completed"){
+                    statusImg = '<img class="icon me-2" src="Assets/Circles/GreenCircle copy.svg" alt="green circle">'
+                    div = '#divColCompleted'
+                }
+                let strHTML ='<div id="divCard-'+tsk.TaskID+'" class="card"><div class="card-header"><div class="d-flex flex-row">'+statusImg+'<h5 class="me-auto">'+tsk.TaskName+'</h5><div class="dropdown-center"><button class="navbar-toggler" type="button" data-bs-toggle="dropdown" data-bs-target="#btnOptions" aria-label="Toggle task options"><span class="navbar-toggler-icon"></span></button><ul class="dropdown-menu"><div class="d-flex flex-column"><button class="btn" type="button" id="btnEdit" data-TaskID="'+tsk.TaskID+'" aria-label="edit task" data-bs-toggle="collapse" data-bs-target="#divEditTask"><img class="img-thumbnail" src="Assets/edit.svg" alt="edit pencil and square"></button><button class="btn" type="button" id="btnView" data-TaskID="'+tsk.TaskID+'" aria-label="view task"><img class="img-thumbnail" src="Assets/view.svg" alt="view eye"></button><button class="btn" type="button" id="btnDelete" data-TaskID="'+tsk.TaskID+'" aria-label="delete task"><img class="img-thumbnail" src="Assets/trash.svg" alt="Trashcan"></button></div></ul></div></div></div><div id="divTaskID-'+tsk.TaskID+'" class="card-body" style="display: none;"><p>TaskID: '+tsk.TaskID+'</p><p>Due Date: '+tsk.DueDate+'</p><p>Status: '+tsk.Status+'</p><p>Location: '+tsk.Location+'</p><p>Instruction: '+tsk.Instructions+'</p></div></div>'
+                $(div).append(strHTML)
+                
+            });
+        })
+        $(document).on('click','#btnView',function(){
+            let strTID = $(this).attr('data-taskID');
+            $('#divTaskID-'+strTID).toggle();
+        })
+        $(document).on('click','#btnEdit',function(){
+            let strTID = $(this).attr('data-taskID');
+            $('#txtEditTaskID').val(strTID);
+        })
+        $(document).on('click','#btnDelete',function(){
+            let strTID = $(this).attr('data-taskID');
+            $.ajax({
+                url:"http://localhost:8000/todo/delete?taskID="+strTID,
+                type:'DELETE',
+                success:function(result){
+                    Swal.fire({
+                        icon:"success",
+                        title:"Success!",
+                    });
+                    $('#divCard-'+strTID).remove();
+                }
+            })
+        })
+        $('#btnAdd').on('click',function(){
+            let strName = $('#txtTaskName').val();
+            let strDueDate = $('#dtDueDate').val();
+            let strLocation = $('#txtLocation').val();
+            let strInstruction = $('#txtInstructions').val();
+            let strStatus = $('#selStatus').val();
+            let strHTML = 'name=' + strName + '&dueDate='+strDueDate+'&location='+strLocation+'&instruction='+strInstruction+'&status=' + strStatus;
+            $.post('http://localhost:8000/todo?'+strHTML, function(result){
+                if(result.message == "success"){
+                    location.reload();
+                }
+            })
+        })
+        $('#btnCancel').on('click',function(){
+            $('#btnAddTask').click();
+        })
+        $('#btnEditCancel').on('click',function(){
+            $('#btnEdit').click();
+        })
+        $('#btnUpdate').on('click',function(){
+            let strID = $('#txtEditTaskID').val();
+            let strName = $('#txtEditTaskName').val();
+            let strDueDate = $('#dtEditDueDate').val();
+            let strLocation = $('#txtEditLocation').val();
+            let strInstruction = $('#txtEditInstructions').val();
+            let strStatus = $('#selEditStatus').val();
+            let strParam = '?';
+            console.log(strDueDate)
+            if(strName.length > 0){
+                strParam += '&name=' + strName;
+            }
+            if(strDueDate.length > 0){
+                strParam += '&dueDate=' + strDueDate;
+            }
+            if(strLocation.length > 0){
+                strParam += '&location=' + strLocation;
+            }
+            if(strInstruction.length > 0){
+                strParam += '&instruction=' + strInstruction;
+            }
+            if(strStatus.length > 0){
+                strParam += '&status=' + strStatus;
+            }
+            $.ajax({
+                url:'http://localhost:8000/todo/' +strID+'/'+strParam,
+                type:'PUT',
+                success:function(result){
+                    if(result.message == "success"){
+                        location.reload()
+                    }
+                }
+            })
+        })
+    </script>
+</body>
+</html>
